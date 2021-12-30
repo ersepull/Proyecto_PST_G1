@@ -18,7 +18,6 @@ public class Start extends AppCompatActivity {
 
     public void inicio(View v){
         Intent i = new Intent(this, Login.class );
-        //i.putExtra("direccion", et1.getText().toString());
         startActivity(i);
     }
 }

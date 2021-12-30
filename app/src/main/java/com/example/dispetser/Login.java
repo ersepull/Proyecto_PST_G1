@@ -16,11 +16,10 @@ public class Login extends AppCompatActivity {
     }
     public void registro(View view){
         Intent i = new Intent(this, Register.class );
-        //i.putExtra("direccion", et1.getText().toString());
         startActivity(i);
     }
     public void acciones(View view){
-        EditText et1 = (EditText) findViewById(R.id.editText);
+        EditText et1 = (EditText) findViewById(R.id.username);
         Intent i = new Intent(this, Actions.class );
         i.putExtra("username", et1.getText().toString());
         startActivity(i);
