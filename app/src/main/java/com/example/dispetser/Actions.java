@@ -17,8 +17,6 @@ public class Actions extends AppCompatActivity {
         log.setText( "Bienvenido "+bundle.getString("username")+" a DISPETSER");
     }
 
-    public void volver(View view) {
-        finish();
-    }
+    public void volver(View view) {finish();}
 
 }
