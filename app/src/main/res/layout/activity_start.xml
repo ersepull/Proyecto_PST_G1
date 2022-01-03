@@ -6,18 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".Start">
 
+
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="411dp"
-        android:layout_height="736dp"
-        android:clickable="true"
-        android:src="@drawable/_63819541_1045496992971771_7582030420068507893_n"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/white"
+        android:src="@drawable/dispetser"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="SpeakableTextPresentCheck"
-        android:contentDescription="TODO" />
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <ProgressBar
         android:id="@+id/progressBar"
