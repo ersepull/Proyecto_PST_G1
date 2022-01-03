@@ -5,6 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="331dp"
+        android:layout_height="57dp"
+        android:text="Escoge la operación a realizar:"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.297" />
+
     <Button
         android:id="@+id/button5"
         android:layout_width="wrap_content"
@@ -27,4 +40,58 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.14" />
+
+    <TableLayout
+        android:layout_width="320dp"
+        android:layout_height="320dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="500dp">
+
+            <ImageButton
+                android:id="@+id/llenar"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:onClick="llenado"
+                tools:ignore="SpeakableTextPresentCheck"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <ImageButton
+                android:id="@+id/cronograma"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:onClick="cronograma"
+                tools:ignore="SpeakableTextPresentCheck"
+                tools:srcCompat="@tools:sample/avatars" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="189dp">
+
+            <ImageButton
+                android:id="@+id/estadisticas"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:onClick="estadisticas"
+                app:srcCompat="@android:drawable/alert_dark_frame"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <ImageButton
+                android:id="@+id/cerrar"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:onClick="salir"
+                app:srcCompat="@android:drawable/alert_light_frame"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </TableRow>
+
+    </TableLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

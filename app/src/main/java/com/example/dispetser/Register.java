@@ -31,6 +31,8 @@ public class Register extends AppCompatActivity {
         email.setText("");
     }
     public void volver(View view) {
+        Intent i = new Intent(this, Login.class);
+        startActivity(i);
         finish();
     }
 

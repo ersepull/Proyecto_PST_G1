@@ -28,6 +28,7 @@ public class Login extends AppCompatActivity {
         startActivity(i);
         username.setText("");
         password.setText("");
+        finish();
     }
     public void acciones(View view){
         if(!username.getText().toString().equals("") && !password.getText().toString().equals("")){
@@ -35,7 +36,8 @@ public class Login extends AppCompatActivity {
         i.putExtra("username", username.getText().toString());
         startActivity(i);
         username.setText("");
-        password.setText("");}
+        password.setText("");
+        finish();}
         else{Toast.makeText(this, "Ingrese los datos completos",Toast.LENGTH_SHORT).show();}
     }
 }

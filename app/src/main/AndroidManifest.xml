@@ -10,14 +10,23 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity
+            android:name=".Estadisticas"
+            android:exported="true" />
+        <activity
+            android:name=".Cronograma"
+            android:exported="true" />
+        <activity
+            android:name=".Llenado"
+            android:exported="true" />
+        <activity
             android:name=".Actions"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".Register"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".Login"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".Start"
             android:exported="true">
