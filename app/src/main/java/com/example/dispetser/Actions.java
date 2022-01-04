@@ -15,7 +15,7 @@ public class Actions extends AppCompatActivity {
         setContentView(R.layout.activity_actions);
         Bundle bundle = getIntent().getExtras();
         TextView log= (TextView) findViewById(R.id.Bienvenida);
-        //log.setText( "Bienvenido "+bundle.getString("username")+" a DISPETSER");
+        log.setText( "Bienvenido "+bundle.getString("username")+" a DISPETSER");
     }
 
     public void volver(View view) {

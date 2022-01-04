@@ -30,7 +30,7 @@ public class Login extends AppCompatActivity {
         password.setText("");
         finish();
     }
-    public void acciones(View view){
+    public void acciones (View view){
         if(!username.getText().toString().equals("") && !password.getText().toString().equals("")){
         Intent i = new Intent(this, Actions.class );
         i.putExtra("username", username.getText().toString());
@@ -39,5 +39,12 @@ public class Login extends AppCompatActivity {
         password.setText("");
         finish();}
         else{Toast.makeText(this, "Ingrese los datos completos",Toast.LENGTH_SHORT).show();}
+        Intent i = new Intent(this, Actions.class );
+        if(username.equals("Grupo_1") && password.equals("12345")){
+            startActivity(i);
+
+        }
     }
+
+
 }
