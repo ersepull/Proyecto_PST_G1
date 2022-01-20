@@ -20,7 +20,6 @@ public class Register extends AppCompatActivity {
     EditText user, nombre, apellido, contra, confirma, email;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
-    Boolean valor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,13 +61,16 @@ public class Register extends AppCompatActivity {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     if(!snapshot.exists()){
-                        valor=!snapshot.exists();
-                        databaseReference.child("Cuenta").child(c.getUsuario()).setValue(c);
-                        Intent i = new Intent(getApplicationContext(), Actions.class);
-                        i.putExtra("username", user.getText().toString());
-                        startActivity(i);
-                        finish();
-                    }else{valor=snapshot.exists();
+                        if(contra.getText().toString().equals(confirma.getText().toString())){
+                            databaseReference.child("Cuenta").child(c.getUsuario()).setValue(c);
+                            Intent i = new Intent(getApplicationContext(), Actions.class);
+                            i.putExtra("username", user.getText().toString());
+                            startActivity(i);
+                            finish();
+                        }else{
+                            Toast.makeText(getApplicationContext(),"La clave de confirmacion es incorrecta, intente nuevamente",Toast.LENGTH_SHORT).show();
+                        }
+                    }else{
                         Toast.makeText(getApplicationContext(),"El nombre de usuario ya esta en uso, escoja otro",Toast.LENGTH_SHORT).show();
                     }
                 }

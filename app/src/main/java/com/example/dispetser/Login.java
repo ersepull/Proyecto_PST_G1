@@ -1,5 +1,6 @@
 package com.example.dispetser;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -9,8 +10,11 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.firebase.FirebaseApp;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 
 public class Login extends AppCompatActivity {
@@ -38,18 +42,44 @@ public class Login extends AppCompatActivity {
     public void acciones (View view){
         inicializarFirebase();
         if(!username.getText().toString().equals("") && !password.getText().toString().equals("")){
-        Intent i = new Intent(this, Actions.class );
-        i.putExtra("username", username.getText().toString());
-        startActivity(i);
-        username.setText("");
-        password.setText("");
-        finish();}
-        else{Toast.makeText(this, "Ingrese los datos completos",Toast.LENGTH_SHORT).show();}
-        Intent i = new Intent(this, Actions.class );
-        if(username.equals("Grupo_1") && password.equals("12345")){
-            startActivity(i);
+            databaseReference.child("Cuenta").child(username.getText().toString()).addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    if(snapshot.exists()){
+                        databaseReference.child("Cuenta").child(username.getText().toString()).child("clave").addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                if(snapshot.exists()){
+                                    if(snapshot.getValue().toString().equals(password.getText().toString())){
+                                        Intent i = new Intent(getApplicationContext(), Actions.class);
+                                        i.putExtra("username", username.getText().toString());
+                                        startActivity(i);
+                                        username.setText("");
+                                        password.setText("");
+                                        finish();
+                                    }else{
+                                        Toast.makeText(getApplicationContext(),"La clave ingresada es incorrecta, intente nuevamente",Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            }
 
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
+                    }else{
+                        Toast.makeText(getApplicationContext(),"El nombre de usuario que está ingresando no existe",Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
         }
+        else{Toast.makeText(this, "Ingrese los datos completos",Toast.LENGTH_SHORT).show();}
     }
     private void inicializarFirebase(){
         FirebaseApp.initializeApp(this);
