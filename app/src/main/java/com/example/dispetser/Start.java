@@ -8,6 +8,9 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class Start extends AppCompatActivity {
     ImageView logo;
 

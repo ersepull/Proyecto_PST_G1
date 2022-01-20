@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Dispetser</string>
     <string name="volver">Volver</string>
+    <string name="cronograma_de_llenado">Cronograma de llenado</string>
 </resources>

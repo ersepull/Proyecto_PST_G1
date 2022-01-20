@@ -8,10 +8,15 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 
 public class Login extends AppCompatActivity {
     EditText username, password;
-
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +36,7 @@ public class Login extends AppCompatActivity {
         finish();
     }
     public void acciones (View view){
+        inicializarFirebase();
         if(!username.getText().toString().equals("") && !password.getText().toString().equals("")){
         Intent i = new Intent(this, Actions.class );
         i.putExtra("username", username.getText().toString());
@@ -44,6 +50,11 @@ public class Login extends AppCompatActivity {
             startActivity(i);
 
         }
+    }
+    private void inicializarFirebase(){
+        FirebaseApp.initializeApp(this);
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference();
     }
 
 

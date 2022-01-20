@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1014567637633",
+    "firebase_url": "https://dispetser-98b24-default-rtdb.firebaseio.com",
+    "project_id": "dispetser-98b24",
+    "storage_bucket": "dispetser-98b24.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1014567637633:android:afd8520958d167b78bf380",
+        "android_client_info": {
+          "package_name": "com.example.dispetser"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1014567637633-njn35igmsuvfkgc9s8guds6jjkc0hbgs.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.dispetser",
+            "certificate_hash": "a1fd218df6c55105c8a4170ab094ab1a439a3560"
+          }
+        },
+        {
+          "client_id": "1014567637633-0tequl2dk84fvimju3dacmheke5dpv7v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJ5gnJKlvwJyigza_vf6lZSSW_0-Yyv4A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1014567637633-0tequl2dk84fvimju3dacmheke5dpv7v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
