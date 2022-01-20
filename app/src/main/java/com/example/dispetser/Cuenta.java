@@ -7,6 +7,8 @@ public class Cuenta {
     private String Clave;
     private String Correo;
 
+    private Cuenta(){}
+
     public Cuenta(String usuario, String nombres, String apellidos, String clave, String correo) {
         this.Usuario = usuario;
         this.Nombres = nombres;
