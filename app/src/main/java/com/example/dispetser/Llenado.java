@@ -69,9 +69,4 @@ public class Llenado extends AppCompatActivity {
         databaseReference = firebaseDatabase.getReference();
     }
 
-    public void agregarAlimentador(View view){
-        String id=UUID.randomUUID().toString();
-        Alimentador a= new Alimentador("Nuevo alimentador", id,0);
-        databaseReference.child("Cuenta").child(usuario).child("Alimentadores").child(id).setValue(a);
-    }
 }

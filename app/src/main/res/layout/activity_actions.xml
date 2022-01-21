@@ -9,13 +9,13 @@
     <TextView
         android:id="@+id/textView4"
         android:layout_width="0dp"
-        android:layout_height="40dp"
+        android:layout_height="80dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
         android:text="Escoge la operación a realizar:"
-        android:textSize="24sp"
         android:textColor="@color/black"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Bienvenida" />
@@ -36,63 +36,61 @@
     <TextView
         android:id="@+id/Bienvenida"
         android:layout_width="0dp"
-        android:layout_height="100dp"
+        android:layout_height="80dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="20dp"
-        android:textSize="24sp"
         android:textColor="@color/black"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button5" />
 
-    <TableLayout
-        android:id="@+id/tableLayout"
-        android:layout_width="320dp"
-        android:layout_height="320dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <ImageButton
+        android:id="@+id/llenar"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_marginTop="15dp"
+        android:onClick="llenado"
+        android:src="@drawable/alimentar"
+        android:scaleType="fitCenter"
+        android:background="@null"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4">
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        tools:ignore="SpeakableTextPresentCheck" />
 
+    <ImageButton
+        android:id="@+id/registrar"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:background="@null"
+        android:onClick="registrar"
+        android:scaleType="fitCenter"
+        android:src="@drawable/registrar"
+        app:layout_constraintEnd_toStartOf="@+id/estadisticas"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/llenar"
+        tools:ignore="SpeakableTextPresentCheck" />
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="500dp">
-
-            <ImageButton
-                android:id="@+id/llenar"
-                android:layout_width="160dp"
-                android:layout_height="160dp"
-                android:onClick="llenado"
-                android:src="@drawable/alimentar"
-                tools:ignore="SpeakableTextPresentCheck" />
-
-            <ImageButton
-                android:id="@+id/cronograma"
-                android:layout_width="160dp"
-                android:layout_height="160dp"
-                android:onClick="cronograma"
-                android:src="@drawable/cronograma"
-                tools:ignore="SpeakableTextPresentCheck" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="189dp">
-
-            <ImageButton
-                android:id="@+id/estadisticas"
-                android:layout_width="160dp"
-                android:layout_height="160dp"
-                android:onClick="estadisticas"
-                tools:ignore="SpeakableTextPresentCheck"
-                android:src="@drawable/estadisticas"/>
-
-
-        </TableRow>
-
-    </TableLayout>
+    <ImageButton
+        android:id="@+id/estadisticas"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:scaleType="fitCenter"
+        android:background="@null"
+        android:onClick="estadisticas"
+        android:src="@drawable/estadisticas"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/registrar"
+        app:layout_constraintTop_toBottomOf="@+id/llenar"
+        tools:ignore="SpeakableTextPresentCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

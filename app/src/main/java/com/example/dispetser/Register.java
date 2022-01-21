@@ -22,6 +22,7 @@ public class Register extends AppCompatActivity {
     EditText user, nombre, apellido, contra, confirma, email;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,13 +43,14 @@ public class Register extends AppCompatActivity {
         apellido.setText("");
         confirma.setText("");
         email.setText("");
-
     }
+
     private void inicializarFirebase(){
         FirebaseApp.initializeApp(this);
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference =firebaseDatabase.getReference();
     }
+
     public void volver(View view) {
         Intent i = new Intent(this, Login.class);
         startActivity(i);
@@ -57,7 +59,9 @@ public class Register extends AppCompatActivity {
 
     public void registrar(View view){
         if(!(user.getText().toString().equals("") || nombre.getText().toString().equals("") || apellido.getText().toString().equals("")
-        || contra.getText().toString().equals("") || confirma.getText().toString().equals("") || email.getText().toString().equals(""))){
+        || contra.getText().toString().equals("") || confirma.getText().toString().equals("") || email.getText().toString().equals("")
+        || user.getText().toString().contains(" ") || nombre.getText().toString().contains(" ") || apellido.getText().toString().contains(" ")
+        || contra.getText().toString().contains(" ") || confirma.getText().toString().contains(" ") || email.getText().toString().contains(" "))){
             Alimentador a= new Alimentador();
             a.setId(UUID.randomUUID().toString());
             a.setNombre("Mi primer alimentador");
@@ -74,13 +78,15 @@ public class Register extends AppCompatActivity {
                             i.putExtra("username", user.getText().toString());
                             startActivity(i);
                             finish();
-                        }else{
+                        }
+                        else {
                             Toast.makeText(getApplicationContext(),"La clave de confirmacion es incorrecta, intente nuevamente",Toast.LENGTH_SHORT).show();
                         }
-                    }else{
+                    }else {
                         Toast.makeText(getApplicationContext(),"El nombre de usuario ya esta en uso, escoja otro",Toast.LENGTH_SHORT).show();
                     }
                 }
+
                 @Override
                 public void onCancelled(@NonNull DatabaseError error) {
                 }

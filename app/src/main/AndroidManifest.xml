@@ -14,7 +14,7 @@
             android:name=".Estadisticas"
             android:exported="true" />
         <activity
-            android:name=".Cronograma"
+            android:name=".Registrar"
             android:exported="true" />
         <activity
             android:name=".Llenado"

@@ -16,7 +16,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-
 public class Login extends AppCompatActivity {
     EditText username, password;
     FirebaseDatabase firebaseDatabase;
@@ -25,11 +24,10 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
         username = (EditText) findViewById(R.id.username);
         password = (EditText) findViewById(R.id.password);
-
     }
+
     public void registro(View view){
         Intent i = new Intent(this, Register.class );
         i.putExtra("username", username.getText().toString());
@@ -39,9 +37,11 @@ public class Login extends AppCompatActivity {
         password.setText("");
         finish();
     }
+
     public void acciones (View view){
         inicializarFirebase();
-        if(!username.getText().toString().equals("") && !password.getText().toString().equals("")){
+        if(!username.getText().toString().equals("") && !password.getText().toString().equals("") &&
+           !username.getText().toString().contains(" ") && !password.getText().toString().contains(" ")){
             databaseReference.child("Cuenta").child(username.getText().toString()).addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -68,7 +68,8 @@ public class Login extends AppCompatActivity {
 
                             }
                         });
-                    }else{
+                    }
+                    else {
                         Toast.makeText(getApplicationContext(),"El nombre de usuario que está ingresando no existe",Toast.LENGTH_SHORT).show();
                     }
                 }
@@ -79,13 +80,13 @@ public class Login extends AppCompatActivity {
                 }
             });
         }
-        else{Toast.makeText(this, "Ingrese los datos completos",Toast.LENGTH_SHORT).show();}
+        else
+            {Toast.makeText(this, "Ingrese los datos completos",Toast.LENGTH_SHORT).show();}
     }
+
     private void inicializarFirebase(){
         FirebaseApp.initializeApp(this);
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference();
     }
-
-
 }

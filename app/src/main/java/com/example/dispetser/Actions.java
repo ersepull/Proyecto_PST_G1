@@ -39,8 +39,8 @@ public class Actions extends AppCompatActivity {
         finish();
     }
 
-    public void cronograma(View view) {
-        Intent i = new Intent(this, Cronograma.class);
+    public void registrar(View view) {
+        Intent i = new Intent(this, Registrar.class);
         i.putExtra("username", usuario);
         startActivity(i);
         finish();
