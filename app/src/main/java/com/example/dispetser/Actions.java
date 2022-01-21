@@ -53,6 +53,13 @@ public class Actions extends AppCompatActivity {
         finish();
     }
 
+    public void web(View view) {
+        Intent i = new Intent(this, webView.class);
+        i.putExtra("username", usuario);
+        startActivity(i);
+        finish();
+    }
+
     public void salir (View view) {finish();}
 
     private void inicializarFirebase(){

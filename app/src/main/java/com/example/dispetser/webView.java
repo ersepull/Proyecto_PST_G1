@@ -16,10 +16,10 @@ public class webView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web_view);
         Bundle bundle = getIntent().getExtras();
-        WebView webView1 = (WebView) findViewById(R.id.webView);
-        WebSettings conf = webView1.getSettings();
-        conf.setJavaScriptEnabled(true);
-        webView1.setWebViewClient(new WebViewClient());
-        webView1.loadUrl("http://192.168.177.59/");
+        //WebView webView1 = (WebView) findViewById(R.id.webView1);
+        //WebSettings conf = webView1.getSettings();
+        //conf.setJavaScriptEnabled(true);
+        //webView1.setWebViewClient(new WebViewClient());
+        //webView1.loadUrl("http://192.168.177.59/");
     }
 }
