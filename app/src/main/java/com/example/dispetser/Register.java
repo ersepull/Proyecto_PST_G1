@@ -16,6 +16,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.UUID;
+
 public class Register extends AppCompatActivity {
     EditText user, nombre, apellido, contra, confirma, email;
     FirebaseDatabase firebaseDatabase;
@@ -56,6 +58,10 @@ public class Register extends AppCompatActivity {
     public void registrar(View view){
         if(!(user.getText().toString().equals("") || nombre.getText().toString().equals("") || apellido.getText().toString().equals("")
         || contra.getText().toString().equals("") || confirma.getText().toString().equals("") || email.getText().toString().equals(""))){
+            Alimentador a= new Alimentador();
+            a.setId(UUID.randomUUID().toString());
+            a.setNombre("Mi primer alimentador");
+            a.setPorcentaje_comida(0);
             Cuenta c= new Cuenta(user.getText().toString(),nombre.getText().toString(),apellido.getText().toString(),contra.getText().toString(),email.getText().toString());
             databaseReference.child("Cuenta").child(c.getUsuario()).addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
@@ -63,6 +69,7 @@ public class Register extends AppCompatActivity {
                     if(!snapshot.exists()){
                         if(contra.getText().toString().equals(confirma.getText().toString())){
                             databaseReference.child("Cuenta").child(c.getUsuario()).setValue(c);
+                            databaseReference.child("Cuenta").child(c.getUsuario()).child("Alimentadores").child(a.getId()).setValue(a);
                             Intent i = new Intent(getApplicationContext(), Actions.class);
                             i.putExtra("username", user.getText().toString());
                             startActivity(i);
