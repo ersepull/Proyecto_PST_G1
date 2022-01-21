@@ -28,8 +28,7 @@ public class Estadisticas extends AppCompatActivity {
     TextView mensaje;
     Spinner opciones;
     String usuario;
-    Alimentador alimentador;
-    String message;
+    String alimentador;
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,10 +43,17 @@ public class Estadisticas extends AppCompatActivity {
         rf1.child(usuario).child("Alimentadores").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                ArrayList<String> info = new ArrayList<>();
                 final List<String> areas= new ArrayList<>();
                 for(DataSnapshot areaSnapchot: snapshot.getChildren()){
                     String area_name= areaSnapchot.child("nombre").getValue(String.class);
+                    String activacion = areaSnapchot.child("activacion").getValue(String.class);
+                    String id = areaSnapchot.child("id").getValue(String.class);
+                    String porcentaje_comida = areaSnapchot.child("porcentaje_comida").getValue(String.class);
+                    String porcentaje_llenar = areaSnapchot.child("porcentaje_llenar").getValue(String.class);
+                    String infoAlimentador = area_name + "," + (activacion) + "," + id + "," + (porcentaje_comida) + "," + (porcentaje_llenar);
                     areas.add(area_name);
+                    info.add(infoAlimentador);
                 }
                 ArrayAdapter<String> areasAdapter= new ArrayAdapter<String>(Estadisticas.this, android.R.layout.simple_spinner_item,areas);
                 opciones.setAdapter(areasAdapter);
@@ -55,9 +61,12 @@ public class Estadisticas extends AppCompatActivity {
                 opciones.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                     @Override
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                        //alimentador = parent.getSelectedItem();
+                        alimentador = parent.getSelectedItem().toString();
 
-                        //mensaje.setText(message);
+                            mensaje.setText(alimentador);
+
+
+
                     }
 
                     @Override
