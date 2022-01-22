@@ -47,11 +47,11 @@ public class Estadisticas extends AppCompatActivity {
                 final List<String> areas= new ArrayList<>();
                 for(DataSnapshot areaSnapchot: snapshot.getChildren()){
                     String area_name= areaSnapchot.child("nombre").getValue(String.class);
-                    String activacion = areaSnapchot.child("activacion").getValue(String.class);
+                    boolean activacion = areaSnapchot.child("activacion").getValue(Boolean.class);
                     String id = areaSnapchot.child("id").getValue(String.class);
-                    String porcentaje_comida = areaSnapchot.child("porcentaje_comida").getValue(String.class);
-                    String porcentaje_llenar = areaSnapchot.child("porcentaje_llenar").getValue(String.class);
-                    String infoAlimentador = area_name + "," + (activacion) + "," + id + "," + (porcentaje_comida) + "," + (porcentaje_llenar);
+                    int porcentaje_comida = areaSnapchot.child("porcentaje_comida").getValue(Integer.class);
+                    int porcentaje_llenar = areaSnapchot.child("porcentaje_llenar").getValue(Integer.class);
+                    String infoAlimentador = area_name + "," + id + "," + String.valueOf(activacion) + "," + String.valueOf(porcentaje_comida) + "," + String.valueOf(porcentaje_llenar);
                     areas.add(area_name);
                     info.add(infoAlimentador);
                 }
@@ -61,12 +61,19 @@ public class Estadisticas extends AppCompatActivity {
                 opciones.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                     @Override
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                        alimentador = parent.getSelectedItem().toString();
-
-                            mensaje.setText(alimentador);
-
-
-
+                        alimentador = parent.getItemAtPosition(position).toString();
+                        for (String cadena: info){
+                            String[] elementos = cadena.split(",");
+                            if (elementos[0].equals(alimentador)){
+                                String message = "Nombre: " + alimentador + "\n"
+                                                +"Id: " + elementos[1] +  "\n"
+                                                +"Motor encendido: " + elementos[2] +  "\n"
+                                                +"Porcentaje de Comida: " + elementos[3] +  "\n"
+                                                +"Porcentaje a llenar: " + elementos[4] +  "\n";
+                                mensaje.setText(message);
+                                mensaje.setTextSize(20);
+                            }
+                        }
                     }
 
                     @Override
