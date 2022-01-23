@@ -3,7 +3,12 @@ plugins {
 }
 
 android {
+    lintOptions{
+        checkReleaseBuilds false
+    }
+
     compileSdk 31
+
 
     defaultConfig {
         applicationId "com.example.dispetser"
