@@ -19,7 +19,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Bienvenida" />
-
     <Button
         android:id="@+id/button5"
         android:layout_width="wrap_content"
@@ -32,7 +31,6 @@
         android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
         android:id="@+id/Bienvenida"
         android:layout_width="0dp"
@@ -46,33 +44,47 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button5" />
-
     <ImageButton
         android:id="@+id/llenar"
-        android:layout_width="129dp"
-        android:layout_height="124dp"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
         android:layout_marginTop="15dp"
-        android:background="@null"
         android:onClick="llenado"
-        android:scaleType="fitCenter"
         android:src="@drawable/alimentar"
+        android:scaleType="fitCenter"
+        android:background="@null"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
         tools:ignore="SpeakableTextPresentCheck" />
-
     <ImageButton
         android:id="@+id/registrar"
-        android:layout_width="131dp"
-        android:layout_height="132dp"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
         android:background="@null"
         android:onClick="registrar"
         android:scaleType="fitCenter"
         android:src="@drawable/registrar"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/estadisticas"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/llenar"
         tools:ignore="SpeakableTextPresentCheck" />
-
+    <ImageButton
+        android:id="@+id/estadisticas"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:scaleType="fitCenter"
+        android:background="@null"
+        android:onClick="estadisticas"
+        android:src="@drawable/estadisticas"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/registrar"
+        app:layout_constraintTop_toBottomOf="@+id/llenar"
+        tools:ignore="SpeakableTextPresentCheck" />
 </androidx.constraintlayout.widget.ConstraintLayout>
